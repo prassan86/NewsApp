@@ -13,6 +13,7 @@
 		F06311422491B35C0019D5D2 /* FeedDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06311412491B35C0019D5D2 /* FeedDetailsView.swift */; };
 		F06311462491E2C70019D5D2 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06311452491E2C70019D5D2 /* DateUtility.swift */; };
 		F06311482491E7390019D5D2 /* WebContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06311472491E7390019D5D2 /* WebContentView.swift */; };
+		F063114A2491EAC30019D5D2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06311492491EAC30019D5D2 /* SearchBar.swift */; };
 		F0CDE5A1249061FC002DD027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CDE5A0249061FC002DD027 /* AppDelegate.swift */; };
 		F0CDE5A3249061FC002DD027 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CDE5A2249061FC002DD027 /* SceneDelegate.swift */; };
 		F0CDE5A5249061FC002DD027 /* FeedHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CDE5A4249061FC002DD027 /* FeedHome.swift */; };
@@ -55,6 +56,7 @@
 		F06311412491B35C0019D5D2 /* FeedDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailsView.swift; sourceTree = "<group>"; };
 		F06311452491E2C70019D5D2 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		F06311472491E7390019D5D2 /* WebContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentView.swift; sourceTree = "<group>"; };
+		F06311492491EAC30019D5D2 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F0CDE59D249061FC002DD027 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0CDE5A0249061FC002DD027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0CDE5A2249061FC002DD027 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		F0CDE5D124908E3D002DD027 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F06311492491EAC30019D5D2 /* SearchBar.swift */,
 				F0CDE5A4249061FC002DD027 /* FeedHome.swift */,
 				F0CDE5D424908EFE002DD027 /* FeedsCardHome.swift */,
 			);
@@ -504,6 +507,7 @@
 				F06311482491E7390019D5D2 /* WebContentView.swift in Sources */,
 				F0CDE5D724908FE3002DD027 /* FeedModel.swift in Sources */,
 				F0CDE5A3249061FC002DD027 /* SceneDelegate.swift in Sources */,
+				F063114A2491EAC30019D5D2 /* SearchBar.swift in Sources */,
 				F06311462491E2C70019D5D2 /* DateUtility.swift in Sources */,
 				F0CDE5A5249061FC002DD027 /* FeedHome.swift in Sources */,
 			);

@@ -23,13 +23,21 @@ struct FeedView : View {
     @EnvironmentObject var feedViewModel : FeedViewModel
     @State var setNaviagtion : Bool = false
     @State var indexSelected : Int = 0
+    @State var searchText: String = ""
+
     var body: some View {
         VStack(){
-            if ((self.feedViewModel.headlinesResponse?.articles.count ?? 0) > 0 ){
+            
+            if (self.feedViewModel.articles.count > 0 ){
+                SearchBar(text: self.$searchText, placeholder: "Search Feeds")
+
                 ScrollView(.horizontal,showsIndicators: false) {
                     HStack(){
-                        ForEach(0..<(self.feedViewModel.headlinesResponse?.articles.count ?? 0),id: \.self) { index in
-                            FeedsCardHome(article: (self.feedViewModel.headlinesResponse?.articles[index])!)
+                        
+                        ForEach(0..<self.feedViewModel.articles.filter {
+                            self.searchText.isEmpty ? true : $0.title?.lowercased().contains(self.searchText.lowercased()) as! Bool}.count,id: \.self) { index in
+                            FeedsCardHome(article: (self.feedViewModel.articles.filter {
+                            self.searchText.isEmpty ? true : $0.title?.lowercased().contains(self.searchText.lowercased()) as! Bool}[index]))
                                 .onTapGesture {
                                     self.indexSelected = index
                                     self.setNaviagtion.toggle()
@@ -39,11 +47,12 @@ struct FeedView : View {
                         }
                     }
                 }
-                NavigationLink(destination:FeedDetailsView(article: self.feedViewModel.headlinesResponse?.articles[self.indexSelected] ?? Article()),isActive: self.$setNaviagtion) { EmptyView()}
+                NavigationLink(destination:FeedDetailsView(article: self.feedViewModel.articles.filter {
+                self.searchText.isEmpty ? true : $0.title?.lowercased().contains(self.searchText.lowercased()) as! Bool}[self.indexSelected] ),isActive: self.$setNaviagtion) { EmptyView()}
             } else{
                 Text("Fetching Data ...")
             }
-            
+            Spacer()
         }
         
     }

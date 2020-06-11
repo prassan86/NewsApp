@@ -10,7 +10,8 @@ import Foundation
 class FeedViewModel : ObservableObject {
     
     let apiUrl : String = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=fc4140479c2240f899b0e47a4a11b370"
-    @Published var headlinesResponse : HeadlinesResponse?
+    @Published var articles : [Article] = []
+    var headlinesResponse : HeadlinesResponse?
     
     init (){
         self.fetchNewsData()
@@ -20,6 +21,9 @@ class FeedViewModel : ObservableObject {
         URLSession.shared.dataTask(with:url){(data,response,error) in
             DispatchQueue.main.async {
                 self.headlinesResponse = try? JSONDecoder().decode(HeadlinesResponse.self, from: data!)
+                if let articlesArray = self.headlinesResponse?.articles{
+                    self.articles = articlesArray
+                }
             }
         }.resume()
     }
