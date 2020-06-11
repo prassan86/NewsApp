@@ -2,8 +2,7 @@
 //  AppDelegate.swift
 //  NewsApp
 //
-//  Created by Nagarajan, Karunakaran(AWF) on 6/9/20.
-//  Copyright © 2020 Nagarajan, Karunakaran(AWF). All rights reserved.
+//  Created by Nagarajan, Karunakaran on 6/9/20.
 //
 
 import UIKit

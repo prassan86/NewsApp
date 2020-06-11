@@ -2,8 +2,7 @@
 //  SceneDelegate.swift
 //  NewsApp
 //
-//  Created by Nagarajan, Karunakaran(AWF) on 6/9/20.
-//  Copyright © 2020 Nagarajan, Karunakaran(AWF). All rights reserved.
+//  Created by Nagarajan, Karunakaran on 6/9/20.
 //
 
 import UIKit
@@ -25,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: feedHome)
+            window.rootViewController = UIHostingController(rootView: feedHome.environmentObject(FeedViewModel()))
             self.window = window
             window.makeKeyAndVisible()
         }
