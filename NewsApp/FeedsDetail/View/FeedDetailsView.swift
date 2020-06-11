@@ -9,22 +9,40 @@ import SDWebImageSwiftUI
 struct FeedDetailsView : View {
     var article : Article
     var body : some View {
-        VStack(){
-            Text(article.title ?? "")
-                .font(.headline)
-                .padding(.bottom,12)
+        ScrollView(.vertical){
+            VStack(alignment: .leading, spacing: 0.0){
             WebImage(url: URL(string: self.article.urlToImage ?? ""))
                 .resizable()
-                .clipped()
-                .frame(minWidth:UIScreen.main.bounds.width - 24, maxWidth: UIScreen.main.bounds.width - 24, minHeight: 200,maxHeight: 200,alignment: .topLeading)
+                .aspectRatio(contentMode: .fit)
+                .frame(width:UIScreen.main.bounds.width - 24,alignment: .topLeading)
                 .padding(.bottom,12)
+            Text(article.title ?? "")
+                .font(.title)
+                .padding(.bottom,12)
+            HStack(alignment:.top, spacing: 0.0){
+                Text(article.author ?? "")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .padding(.trailing,12)
+                Text(DateUtility.formattedDate(dateString: self.article.publishedAt ?? "") )
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .padding(.horizontal,8)
+            .padding(.bottom,12)
             Text(article.description ?? "")
-                .font(.subheadline)
+                .font(.body)
                 .padding(.bottom,12)
-            Text(article.content ?? "")
-                .font(.subheadline)
-                .padding(.bottom,12)
+                .padding(.horizontal,8)
+            NavigationLink(destination: WebContentView(url: article.url ?? "")){
+            Text(article.url ?? "")
+                .foregroundColor(Color.blue)
+                .padding(.horizontal,8)
+                .font(.footnote)
+            }
             Spacer()
         }.padding(.horizontal,12)
+    }
     }
 }
